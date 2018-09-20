@@ -33,12 +33,12 @@
         <repository>
             <id>deployment</id>
             <name>Internal Releases</name>
-            <url>http://35.231.52.255:8081/repository/maven-releases/</url>
+            <url>http://192.168.0.50:8081/nexus/content/repositories/WAR/</url>
         </repository>
         <snapshotRepository>
             <id>deployment</id>
             <name>Internal Snapshot Releases</name>
-            <url>http://35.231.52.255:8081/repository/maven-snapshots/</url>
+            <url>http://192.168.0.50:8081/nexus/content/repositories/WAR-SNAP/</url>
         </snapshotRepository>
     </distributionManagement>
     <build>
