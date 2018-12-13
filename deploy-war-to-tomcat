@@ -1,6 +1,10 @@
-pipeline {
-	agent any
-	stages {
+node{
+   stage("SCM checkout'){
+      git 'https://github.com/bibhuti-bhusan/mvnproj.git'
+   }
+	
+      stages {
+
 	   stage ('compile stage') {
 	    steps {
 	      withMaven(maven: 'maven') {
@@ -37,6 +41,13 @@ pipeline {
             steps {
               withMaven(maven: 'maven') {
                 sh 'mvn deploy'
+              }
+            }
+           }
+	   stage ('deployment-to-tomcat') {
+            steps {
+               sshagent(['tomcat-admin']) {
+                sh 'scp  target/*.war root@192.168.1.250:/opt/apache-tomcat/webapps/'
               }
             }
            }
