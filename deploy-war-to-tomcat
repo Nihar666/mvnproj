@@ -1,8 +1,5 @@
-node{
-   stage('SCM checkout'){
-      git 'https://github.com/bibhuti-bhusan/mvnproj.git'
-   }
-	
+pipeline {
+      agent any	
       stages {
 
 	   stage ('compile stage') {
